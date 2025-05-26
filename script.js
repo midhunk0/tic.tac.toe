@@ -43,7 +43,7 @@ function add(id){
             });
         }, 100);
     } 
-    else if(isDraw(state)){
+    else if(isDraw(state)){ // This call correctly passes the global state
         gameOver=true;
         setTimeout(()=>{
             const result=document.createElement("div");
@@ -54,18 +54,17 @@ function add(id){
     }
 }
 
-function isDraw(state){
-    if(isWin(state)) return false;
+function isDraw(currentBoardState){ // Corrected function
+    if(isWin()) return false; // isWin() uses the global 'state'
 
-    for(let [a, b, c] of wins){
-        const line=[state[a], state[b], state[c]];
-        const players=new Set(line.filter(cell=>cell!==null));
-        
-        if(players.size<=1 && line.includes(null)){
+    // Check if all cells in the passed 'currentBoardState' are filled
+    for(let i = 0; i < currentBoardState.length; i++) {
+        if(currentBoardState[i] === null) {
+            // If any cell is empty, it's not a draw yet
             return false; 
         }
     }
-
+    // If the loop completes, all cells are filled, and isWin() was false. So, it's a draw.
     return true;
 }
 

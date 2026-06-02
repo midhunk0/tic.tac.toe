@@ -1,12 +1,6 @@
 *{
     font-family: "Amatic SC", sans-serif;
-    padding: 0;
     box-sizing: border-box;
-}
-
-h1{
-    font-size: 44px;
-    line-height: 0;
 }
 
 body{
@@ -19,14 +13,122 @@ body{
 }
 
 .heading{
+    font-size: 44px;
     padding: 0 10px;
     background: url(//s2.svgbox.net/pen-brushes.svg?ic=brush-10&color=faebd7)
+}
+
+.mode-controls{
+    display: flex;
+    gap: 8px;
+}
+
+.button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #faebd7;
+    border: 1px solid black;
+    padding: 4px 18px;
+    font-size: 26px;
+    font-weight: bolder;
+    color: black;
+    cursor: pointer;
+    box-shadow: 4px 4px #e6cca7;
+}
+
+.button:hover{
+    background-color: #faebd7;
+    transform: translate(-4px, -4px);
+    box-shadow: 4px 4px black;
+}
+
+.button:active{
+    background-color: #faebd7;
+    transform: none;
+    box-shadow: 4px 4px #e6cca7;
+}
+
+.button.active{
+    background-color: #009688;
+    color: white;
+}
+
+.button-icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.status-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    min-height: 48px;
+    padding: 8px 24px;
+    background-color: #faebd7;
+    border: 1px solid black;
+    position: relative;
+}
+
+.status-card span{
+    font-size: 18px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.status-card strong{
+    font-size: 28px;
+    line-height: 1;
+    color: #009688;
+}
+
+.status-card.o-turn strong{
+    color: #F44336;
+}
+
+.status-card.x-turn strong{
+    color: #009688;
+}
+
+.status-card.draw-turn strong{
+    color: black;
+}
+
+.card-icon{
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    line-height: 1;
+}
+
+.o-turn .card-icon,
+.o-win .card-icon{
+    color: #009688;
+}
+
+.x-turn .card-icon,
+.x-win .card-icon{
+    color: #F44336;
+}
+
+.draw-turn .card-icon,
+.draw-result .card-icon{
+    color: black;
 }
 
 .box0{
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 2px;
     background-color: black;
 }
@@ -37,7 +139,7 @@ body{
 
 .box{
     display: flex;
-    border: 2px solid black;
+    border: 1px solid black;
     width: 100px;
     height: 100px;
     align-items: center;
@@ -53,46 +155,44 @@ body{
     object-fit: contain;
 }
 
-.reset{
-    background-color: #faebd7;
-    border: 2px solid black;
-    padding: 5px 30px;
-    font-size: 32px;
-    font-weight: bolder;
+.result-card{
+    position: relative;
+    min-width: 290px;
+    margin-top: 4px;
+    padding-left: 58px;
+    padding-right: 58px;
+}
+
+.result-card strong{
     color: black;
-    cursor: pointer;
-    box-shadow: 4px 4px #e6cca7;
 }
 
-.reset:hover{
-    background-color: #faebd7;
-    transform: translate(-4px, -4px);
-    box-shadow: 4px 4px black;
+.result-card.o-win strong{
+    color: #F44336;
 }
 
-.reset:active{
-    background-color: #faebd7;
-    transform: none;
-    box-shadow: 4px 4px #e6cca7;
+.result-card.x-win strong{
+    color: #009688;
 }
 
-#result{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.result-card.draw-result strong{
+    color: black;
 }
 
-.img-small{
+.result-mark{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
+    margin-top: 5px;
+    background-color: #faebd7;
 }
 
-.img-small img{
-    width: 26px;
-    height: 26px;
+.result-mark img{
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }
 
 @media(max-width: 480px){

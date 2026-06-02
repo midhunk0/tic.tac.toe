@@ -2,16 +2,21 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="icon" href="./tic-tac-toe.png" />
         <title>Tic Tac Toe</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <script defr src="./script.js"></script>
+        <script defer src="./script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     </head>
     <body>
         <h1><span class="heading">tic tac toe</span></h1>
+        <div class="status-card o-turn" id="turnCard">
+            <span>Current Turn</span>
+            <strong>Player O</strong>
+        </div>
         <div class="box0">
             <div class="row1">
                 <div class="box" id="box1" onclick="add(1)"></div>
@@ -29,6 +34,10 @@
                 <div class="box" id="box9" onclick="add(9)"></div>
             </div>
         </div>
-        <button type="button" class="reset" onclick="reset()">Reset</button>
+        <button type="button" class="button" onclick="reset()"><span class="button-icon">↻</span> New Game</button>
+        <div class="mode-controls">
+            <button type="button" class="button active" id="twoPlayerMode" onclick="setMode('twoPlayer')"><span class="button-icon">♟</span> 2 Players</button>
+            <button type="button" class="button" id="computerMode" onclick="setMode('computer')"><span class="button-icon">▣</span> Computer</button>
+        </div>
     </body>
 </html>
